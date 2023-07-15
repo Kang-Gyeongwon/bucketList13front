@@ -56,4 +56,8 @@ body{
   font-family: 'DungGeunMo';
 }
 
+input{
+  font-family: 'DungGeunMo';
+}
+
 `;

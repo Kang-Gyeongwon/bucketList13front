@@ -1,9 +1,11 @@
+import { AddBtn, FormInput, InputBox } from "./styled";
+
 const BucketInput = () => {
   return (
-    <div>
-      <input type="text" />
-      <input type="submit" />
-    </div>
+    <InputBox>
+      <FormInput type="text" placeholder="What's on your adventure list?" />
+      <AddBtn type="submit" value="Create" />
+    </InputBox>
   );
 };
 

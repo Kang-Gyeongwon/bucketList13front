@@ -1,5 +1,5 @@
 const BucketList = () => {
-  return <>BucketList</>;
+  return <div style={{height: "67.95vh"}}>BucketList</div>;
 };
 
 export default BucketList;
