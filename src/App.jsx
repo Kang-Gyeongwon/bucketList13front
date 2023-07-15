@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/home";
-import BucketList from "./pages/bucketlist";
+import BucketLists from "./pages/bucketlists";
 import { GlobalStyle } from "./style/GlobalStyle";
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/bucketlist" element={<BucketList />} />
+          <Route path="/bucketlist" element={<BucketLists />} />
         </Routes>
       </BrowserRouter>
     </>

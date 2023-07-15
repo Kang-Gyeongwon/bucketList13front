@@ -1,9 +1,5 @@
 const BucketList = () => {
-  return (
-    <>
-      <div></div>
-    </>
-  );
+  return <>BucketList</>;
 };
 
 export default BucketList;
