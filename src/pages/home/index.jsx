@@ -1,26 +1,43 @@
+import { useState } from "react";
+import {
+  HeaderContainer,
+  HeaderTitle,
+  Content,
+  WelcomeMessage,
+} from "./styled.jsx";
+import { useNavigate } from "react-router-dom";
+import Checkbox from "../../components/shared/CheckedBox/index.jsx";
+import { BodyContainer } from "../../components/shared/BodyContainer/styled.jsx";
+import ListIcon from "../../components/shared/ListIcon/index.jsx";
+
 const HomePage = () => {
+  const [checked, setChecked] = useState(false);
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    setChecked(true);
+    setTimeout(() => {
+      navigate("/bucketlist");
+    }, 250);
+  };
+
   return (
     <>
-      <div>Bucket List</div>
-      <div>
-        <div
-          style={{
-            backgroundImage: "url(/assets/images/main-image.jpg)",
-            height: "500px",
-            width: "500px",
-            backgroundSize: "cover",
-          }}
-        ></div>
-        <span>Welcome to your bucket list</span>
-        <div>
-          Life is an exciting journey filled with dreams and possibilities.
-          Every adventure begins with a single step. Start your bucket list
-          journey today and make your dreams come true one by one. Because your
-          dreams are not just dreams, they are a roadmap to your future. So why
-          wait? Start your journey now!
-        </div>
-        <button>Go To My Bucket List</button>
-      </div>
+      <HeaderContainer>
+        <HeaderTitle>
+          <ListIcon />
+          <>Bucket List</>
+        </HeaderTitle>
+      </HeaderContainer>
+      <BodyContainer>
+        <Content>
+          <Checkbox checked={checked} onClick={handleClick} />
+          <WelcomeMessage>
+            Welcome To Your Bucket List. <br />
+            Now, Go To My Bucket List
+          </WelcomeMessage>
+        </Content>
+      </BodyContainer>
     </>
   );
 };
