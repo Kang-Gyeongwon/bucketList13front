@@ -7,7 +7,7 @@ const BucketLists = () => {
   return (
     <>
       <Header />
-      <BodyContainer>
+      <BodyContainer style={{ flexDirection: "column" }}>
         <BucketInput />
         <BucketList />
       </BodyContainer>
