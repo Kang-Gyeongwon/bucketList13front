@@ -1,14 +1,9 @@
 import { useState } from "react";
-import {
-  HeaderContainer,
-  HeaderTitle,
-  Content,
-  WelcomeMessage,
-} from "./styled.jsx";
+import { Content, WelcomeMessage } from "./styled.jsx";
 import { useNavigate } from "react-router-dom";
 import Checkbox from "../../components/shared/CheckedBox/index.jsx";
 import { BodyContainer } from "../../components/shared/BodyContainer/styled.jsx";
-import ListIcon from "../../components/shared/ListIcon/index.jsx";
+import Header from "../../components/shared/Header/index.jsx";
 
 const HomePage = () => {
   const [checked, setChecked] = useState(false);
@@ -23,12 +18,7 @@ const HomePage = () => {
 
   return (
     <>
-      <HeaderContainer>
-        <HeaderTitle>
-          <ListIcon />
-          <>Bucket List</>
-        </HeaderTitle>
-      </HeaderContainer>
+      <Header />
       <BodyContainer>
         <Content>
           <Checkbox checked={checked} onClick={handleClick} />
