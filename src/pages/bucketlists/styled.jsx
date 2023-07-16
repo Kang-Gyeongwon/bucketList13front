@@ -1,3 +1,3 @@
-export const BodyContainerstyle = {
+export const bodyContainerstyle = {
   flexDirection: "column" 
 }
