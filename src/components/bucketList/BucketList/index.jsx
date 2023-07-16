@@ -6,6 +6,16 @@ const BucketList = () => {
     <Container>
       <BucketListItem />
       <BucketListItem />
+      <BucketListItem />
+      <BucketListItem />
+      <BucketListItem />
+      <BucketListItem />
+      <BucketListItem />
+      <BucketListItem />
+      <BucketListItem />
+      <BucketListItem />
+      <BucketListItem />
+      <BucketListItem />
     </Container>
   );
 };

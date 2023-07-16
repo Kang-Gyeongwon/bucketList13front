@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const BucketBox = styled.div`
-  width: 270px;
-  height: 290px;
+  width: 16.875em;
+  height: 18.125em;
   background-color: #e4e5e4;
   border: 1px solid #416556;
   box-sizing: border-box;
-  margin: 6px;
+  margin: 0.375em;
 `;
 
 export const BucketBoxHeader = styled.div`
@@ -37,7 +37,7 @@ export const ContentContainer = styled.div`
 export const ImageBox = styled.div`
   background-image: url(./assets/images/bucketlist-image.jpg);
   width: 95%;
-  height: 150px;
+  height: 9.375em;
   background-size: cover;
 `;
 
@@ -46,7 +46,7 @@ export const ContentBox = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin: 20px;
+  margin: 1.25em;
 `;
 
 export const checkBoxStyle = {
@@ -55,7 +55,7 @@ export const checkBoxStyle = {
 };
 
 export const Content = styled.span`
-  font-size: 14px;
+  font-size: 0.875em;
   font-weight: 100;
   color: #272727;
 `;
