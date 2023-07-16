@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Content, WelcomeMessage } from "./styled.jsx";
 import { useNavigate } from "react-router-dom";
-import Checkbox from "../../components/shared/CheckedBox/index.jsx";
+import Checkbox from "../../components/shared/CheckBox/index.jsx";
 import { BodyContainer } from "../../components/shared/BodyContainer/styled.jsx";
 import Header from "../../components/shared/Header/index.jsx";
 
