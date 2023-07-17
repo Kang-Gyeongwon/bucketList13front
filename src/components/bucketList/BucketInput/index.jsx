@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AddBtn, FormInput, InputBox } from "./styled";
-import { QueryClient, useMutation, useQueryClient } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import { addBucketItem } from "../../../api/bucketItems";
 
 const BucketInput = () => {
