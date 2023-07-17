@@ -7,12 +7,12 @@
     },
     {
       "content": "123",
-      "finish_check": false,
+      "finish_check": true,
       "id": 2
     },
     {
       "content": "1234",
-      "finish_check": false,
+      "finish_check": true,
       "id": 3
     },
     {
