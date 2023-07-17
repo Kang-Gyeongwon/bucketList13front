@@ -1,0 +1,24 @@
+{
+  "bucketListItems": [
+    {
+      "id": 1,
+      "content": "내용",
+      "finish_check": false
+    },
+    {
+      "id": 2,
+      "content": "내용2",
+      "finish_check": false
+    },
+    {
+      "content": "test1",
+      "finish_check": false,
+      "id": 3
+    },
+    {
+      "content": "123",
+      "finish_check": false,
+      "id": 4
+    }
+  ]
+}
