@@ -10,7 +10,8 @@ import {
 } from "./styled";
 import Checkbox from "../../../shared/CheckBox";
 
-const BucketListItem = () => {
+const BucketListItem = (props) => {
+  const { item } = props;
   const handleClose = () => {
     console.log("You closed the card.");
   };
@@ -24,7 +25,7 @@ const BucketListItem = () => {
         <ImageBox></ImageBox>
         <ContentBox>
           <Checkbox style={checkBoxStyle} />
-          <Content>내용</Content>
+          <Content>{item.content}</Content>
         </ContentBox>
       </ContentContainer>
     </BucketBox>
