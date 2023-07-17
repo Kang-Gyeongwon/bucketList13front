@@ -11,4 +11,12 @@ const getBucketListItems = async () => {
   return response.data;
 };
 
-export { addBucketItem, getBucketListItems };
+// 업데이트하기
+const completeBucketItem = async (id, completeBucketItem) => {
+  await axios.put(
+    `http://localhost:4000/bucketListItems/${id}`,
+    completeBucketItem
+  );
+};
+
+export { addBucketItem, getBucketListItems, completeBucketItem };
