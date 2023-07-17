@@ -5,4 +5,10 @@ const addBucketItem = async (newBucket) => {
   await axios.post("http://localhost:4000/bucketListItems", newBucket);
 };
 
-export { addBucketItem };
+// 가져오기
+const getBucketListItems = async () => {
+  const response = await axios.get("http://localhost:4000/bucketListItems");
+  return response.data;
+};
+
+export { addBucketItem, getBucketListItems };

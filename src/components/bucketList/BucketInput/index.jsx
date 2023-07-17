@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AddBtn, FormInput, InputBox } from "./styled";
-import { QueryClient, useMutation } from "react-query";
+import { QueryClient, useMutation, useQueryClient } from "react-query";
 import { addBucketItem } from "../../../api/bucketItems";
 
 const BucketInput = () => {
@@ -8,11 +8,12 @@ const BucketInput = () => {
     content: "",
   });
 
-  const queryClient = new QueryClient();
+  const queryClient = useQueryClient();
 
   const mutation = useMutation(addBucketItem, {
     onSuccess: () => {
       queryClient.invalidateQueries("bucketListItems");
+      console.log("success");
     },
   });
 
@@ -24,7 +25,7 @@ const BucketInput = () => {
   };
 
   const handleSubmit = () => {
-    if (formValue.content.length > 140) {
+    if (formValue.content.length >= 140) {
       window.alert("Please enter up to 140 characters.");
       return;
     }
@@ -32,6 +33,7 @@ const BucketInput = () => {
       ...formValue,
       finish_check: false,
     };
+
     mutation.mutate(newBucket);
 
     setFormValue({
