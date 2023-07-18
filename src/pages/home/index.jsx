@@ -13,7 +13,7 @@ const HomePage = () => {
     setChecked(true);
     setTimeout(() => {
       navigate("/bucketlist");
-    }, 250);
+    }, 370);
   };
 
   return (
