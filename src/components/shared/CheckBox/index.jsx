@@ -4,7 +4,8 @@ import { CheckboxContainer, CheckedIcon } from "./styled";
 const Checkbox = (props) => {
   const { checked, onClick, style } = props;
 
-  const scale = 0.5;  // you can adjust this scale value
+  // 축소 비율
+  const scale = 0.5;
   const scaledStyle = style
     ? {
         width: parseFloat(style.width) * scale + "em",

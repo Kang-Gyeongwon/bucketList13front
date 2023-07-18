@@ -9,6 +9,7 @@ const HomePage = () => {
   const [checked, setChecked] = useState(false);
   const navigate = useNavigate();
 
+  // home 화면에서 checkbox를 누르면 체크표시가 보이면서 bucketlist로 페이지 이동 시키기
   const handleClick = () => {
     setChecked(true);
     setTimeout(() => {

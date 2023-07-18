@@ -5,11 +5,13 @@ import { getBucketListItems } from "../../../api/bucketItems";
 import { fetchImages } from "../../../api/bucketImages";
 
 const BucketList = () => {
+  // bucket list 데이터 불러오기
   const { isLoading, error, data } = useQuery(
     "bucketListItems",
     getBucketListItems
   );
 
+  // 이미지 불러오기
   const { data: imageUrls } = useQuery("images", fetchImages);
 
   if (isLoading) {
