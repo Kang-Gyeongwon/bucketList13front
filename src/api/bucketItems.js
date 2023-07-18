@@ -19,4 +19,14 @@ const completeBucketItem = async (id, completeBucketItem) => {
   );
 };
 
-export { addBucketItem, getBucketListItems, completeBucketItem };
+// 삭제하기
+const deleteBucketItem = async (id) => {
+  await axios.delete(`http://localhost:4000/bucketListItems/${id}`);
+};
+
+export {
+  addBucketItem,
+  getBucketListItems,
+  completeBucketItem,
+  deleteBucketItem,
+};

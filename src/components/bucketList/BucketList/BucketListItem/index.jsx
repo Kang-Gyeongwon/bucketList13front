@@ -11,7 +11,10 @@ import {
 import Checkbox from "../../../shared/CheckBox";
 import { useState } from "react";
 import { useMutation, useQueryClient } from "react-query";
-import { completeBucketItem } from "../../../../api/bucketItems";
+import {
+  completeBucketItem,
+  deleteBucketItem,
+} from "../../../../api/bucketItems";
 
 const BucketListItem = (props) => {
   const { item } = props;
@@ -20,6 +23,7 @@ const BucketListItem = (props) => {
 
   const queryClient = useQueryClient();
 
+  // 완료 토글 버튼 뮤테이션
   const updateCompletedMutation = useMutation(
     (newStatus) =>
       completeBucketItem(item.id, { ...item, finish_check: newStatus }),
@@ -30,8 +34,15 @@ const BucketListItem = (props) => {
     }
   );
 
+  // 아이템 삭제 뮤테이션
+  const deleteItemMutation = useMutation(() => deleteBucketItem(item.id), {
+    onSuccess: () => {
+      queryClient.invalidateQueries("bucketListItems");
+    },
+  });
+
   const handleClose = () => {
-    console.log("You closed the card.");
+    deleteItemMutation.mutate();
   };
 
   const handleCheck = () => {
