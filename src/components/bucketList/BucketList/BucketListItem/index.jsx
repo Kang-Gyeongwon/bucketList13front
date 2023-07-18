@@ -17,11 +17,12 @@ import {
 } from "../../../../api/bucketItems";
 
 const BucketListItem = (props) => {
-  const { item } = props;
+  const { item, imageUrl } = props;
 
   const [isCompleted, setIsCompleted] = useState(item.finish_check);
 
   const queryClient = useQueryClient();
+  console.log(imageUrl);
 
   // 완료 토글 버튼 뮤테이션
   const updateCompletedMutation = useMutation(
@@ -57,7 +58,7 @@ const BucketListItem = (props) => {
         <DeleteButton onClick={handleClose} />
       </BucketBoxHeader>
       <ContentContainer>
-        <ImageBox></ImageBox>
+        <ImageBox imageUrl={imageUrl} />
         <ContentBox>
           <Checkbox
             style={checkBoxStyle}
