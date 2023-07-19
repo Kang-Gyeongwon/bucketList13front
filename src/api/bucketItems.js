@@ -53,15 +53,22 @@ const getBucketListItems = async () => {
 
 // 업데이트하기
 const completeBucketItem = async (id, completeBucketItem) => {
-  await axios.put(
-    `http://localhost:4000/bucketListItems/${id}`,
-    completeBucketItem
-  );
+  await axios.put(`https://bucket13.shop/api/post/${id}`, completeBucketItem);
 };
 
 // 삭제하기
+// const deleteBucketItem = async (id) => {
+//   await axios.delete(`http://localhost:4000/bucketListItems/${id}`);
+// };
+
 const deleteBucketItem = async (id) => {
-  await axios.delete(`http://localhost:4000/bucketListItems/${id}`);
+  try {
+    const response = await axios.delete(`https://bucket13.shop/api/post/${id}`);
+    console.log(response);
+  } catch (error) {
+    console.log("Error in deleteBucketItem:", error);
+    throw error;
+  }
 };
 
 export {
