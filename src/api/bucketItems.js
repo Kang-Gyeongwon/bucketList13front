@@ -53,7 +53,12 @@ const getBucketListItems = async () => {
 
 // 업데이트하기
 const completeBucketItem = async (id, completeBucketItem) => {
-  await axios.put(`https://bucket13.shop/api/post/${id}`, completeBucketItem);
+  try {
+    await axios.put(`https://bucket13.shop/api/post/${id}`, completeBucketItem);
+  } catch (error) {
+    console.error("Error in completeBucketItem:", error);
+    throw error;
+  }
 };
 
 // 삭제하기
