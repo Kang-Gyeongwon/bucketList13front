@@ -12,17 +12,21 @@ const BucketList = () => {
   );
 
   // 이미지 불러오기
-  const { data: imageUrls } = useQuery("images", fetchImages);
+  const {
+    data: imageUrls,
+    isLoading: imageLoading,
+    error: imageError,
+  } = useQuery("images", fetchImages);
 
-  if (isLoading) {
+  if (isLoading || imageLoading) {
     return <p>Loading...</p>;
   }
 
-  if (error) {
+  if (error || imageError) {
     return <p>Error...</p>;
   }
 
-  console.log(data)
+  console.log(data);
 
   return (
     <Container>

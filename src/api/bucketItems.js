@@ -35,19 +35,32 @@ const getBucketListItems = async () => {
       console.log(
         "The 'postList' property does not exist in the response data."
       );
+      return [];
     }
 
     // 데이터 반환
     return response.data.postList;
   } catch (error) {
-    // API 에러 메시지가 error.response.data에 있을 경우 error메세지 리턴받기
-    if (error.response && error.response.data) {
-      throw new Error(
-        `Error Code: ${error.response.data.errorCode}, Error Message: ${error.response.data.errorMessage}`
-      );
+    // Network error (서버에 연결할 수 없는 경우)
+    if (!error.response) {
+      throw new Error("Unable to connect to the server.");
     }
+
+    if (error.response && error.response.status === 400) {
+      return [];
+    } else {
+      throw error;
+    }
+
+    // // API 에러 메시지가 error.response.data에 있을 경우 error메세지 리턴받기
+    // if (error.response.data) {
+    //   throw new Error(
+    //     `Error Code: ${error.response.data.errorCode}, Error Message: ${error.response.data.errorMessage}`
+    //   );
+    // }
+
     // 그 외 에러 츨력
-    throw error;
+    // throw error;
   }
 };
 
