@@ -34,6 +34,7 @@ const BucketInput = () => {
     }
     const newBucket = {
       ...formValue,
+      finish_check: false,
     };
 
     mutation.mutate(newBucket);

@@ -6,11 +6,16 @@ import axios from "axios";
 // };
 
 const addBucketItem = async (newBucket) => {
-  await axios
-    .post("https://bucket13.shop/api/post", newBucket)
-    .catch((error) => {
-      console.log("Error", error);
-    });
+  try {
+    const response = await axios.post(
+      "https://bucket13.shop/api/post",
+      newBucket
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error in addBucketItem:", error);
+    throw error;
+  }
 };
 
 // 가져오기
@@ -24,7 +29,7 @@ const getBucketListItems = async () => {
     const response = await axios.get("https://bucket13.shop/api/posts");
 
     // 응답 데이터 로그 보기
-    console.log(response.data);
+    // console.log(response.data);
 
     if (!response.data.postList) {
       console.log(
