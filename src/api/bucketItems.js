@@ -52,11 +52,25 @@ const getBucketListItems = async () => {
 };
 
 // 업데이트하기
+// const completeBucketItem = async (id, completeBucketItem) => {
+//   await axios.put(
+//     `http://localhost:4000/bucketListItems/${id}`,
+//     completeBucketItem
+//   );
+// };
 const completeBucketItem = async (id, completeBucketItem) => {
-  await axios.put(
-    `http://localhost:4000/bucketListItems/${id}`,
-    completeBucketItem
-  );
+  try {
+    const response = await axios.put(
+      `https://bucket13.shop/api/post/{id}`,
+      completeBucketItem
+    );
+    console.log(response);
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.error("Error in completeBucketItem:", error);
+    throw error;
+  }
 };
 
 // 삭제하기
