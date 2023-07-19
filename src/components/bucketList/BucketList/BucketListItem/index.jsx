@@ -19,10 +19,10 @@ import {
 const BucketListItem = (props) => {
   const { item, imageUrl } = props;
 
+  // 완료 버튼 상태관리
   const [isCompleted, setIsCompleted] = useState(item.finish_check);
 
   const queryClient = useQueryClient();
-  console.log(imageUrl);
 
   // 완료 토글 버튼 뮤테이션
   const updateCompletedMutation = useMutation(
@@ -42,10 +42,12 @@ const BucketListItem = (props) => {
     },
   });
 
+  // 삭제 버튼
   const handleClose = () => {
     deleteItemMutation.mutate();
   };
 
+  // 완료 버튼
   const handleCheck = () => {
     const newStatus = !isCompleted;
     setIsCompleted(newStatus);
@@ -58,7 +60,7 @@ const BucketListItem = (props) => {
         <DeleteButton onClick={handleClose} />
       </BucketBoxHeader>
       <ContentContainer>
-        <ImageBox imageUrl={imageUrl} />
+        <ImageBox $imageUrl={imageUrl} />
         <ContentBox>
           <Checkbox
             style={checkBoxStyle}

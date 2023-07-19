@@ -35,7 +35,7 @@ export const ContentContainer = styled.div`
 `;
 
 export const ImageBox = styled.div`
-  background-image: url(${(props) => props.imageUrl ? props.imageUrl : "./assets/images/bucketlist-image.jpg"});
+  background-image: url(${(props) => props.$imageUrl ? props.$imageUrl : "./assets/images/bucketlist-image.jpg"});
   width: 95%;
   height: 9.375em;
   background-size: cover;

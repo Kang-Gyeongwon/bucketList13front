@@ -15,6 +15,9 @@ const BucketInput = () => {
       queryClient.invalidateQueries("bucketListItems");
       console.log("success");
     },
+    onError: (error) => {
+      console.log("Error", error.message);
+    },
   });
 
   const handkeInputChages = (e) => {

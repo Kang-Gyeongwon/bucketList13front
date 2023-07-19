@@ -1,3 +1,4 @@
+// Header title 옆에 있는 아이콘
 import { RiListCheck3 } from "react-icons/ri";
 
 const IconStyle = {

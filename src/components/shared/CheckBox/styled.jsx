@@ -16,7 +16,6 @@ export const CheckedIcon = styled.div`
     const { checked } = props;
     return checked ? "block" : "none";
   }};
-  /* display: block; */
   background-image: url(/assets/images/check.svg);
   background-size: cover;
   width: ${(props) => props.style?.width || "1.625em"};
