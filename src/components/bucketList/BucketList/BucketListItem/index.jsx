@@ -11,13 +11,10 @@ import {
 import Checkbox from "../../../shared/CheckBox";
 import { useState } from "react";
 import { useMutation, useQueryClient } from "react-query";
-import {
-  completeBucketItem,
-  deleteBucketItem,
-} from "../../../../api/bucketItems";
+import { completeBucketItem } from "../../../../api/bucketItems";
 
 const BucketListItem = (props) => {
-  const { item, imageUrl } = props;
+  const { item, imageUrl, onDelete } = props;
 
   // 완료 버튼 상태관리
   const [isCompleted, setIsCompleted] = useState(item.finish_check);
@@ -35,16 +32,9 @@ const BucketListItem = (props) => {
     }
   );
 
-  // 아이템 삭제 뮤테이션
-  const deleteItemMutation = useMutation(() => deleteBucketItem(item.id), {
-    onSuccess: () => {
-      queryClient.invalidateQueries("bucketListItems");
-    },
-  });
-
   // 삭제 버튼
   const handleClose = () => {
-    deleteItemMutation.mutate();
+    onDelete(item.id);
   };
 
   // 완료 버튼
