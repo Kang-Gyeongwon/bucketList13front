@@ -60,7 +60,7 @@ const BucketListItem = (props) => {
         <DeleteButton onClick={handleClose} />
       </BucketBoxHeader>
       <ContentContainer>
-        <ImageBox imageUrl={imageUrl} />
+        <ImageBox $imageUrl={imageUrl} />
         <ContentBox>
           <Checkbox
             style={checkBoxStyle}

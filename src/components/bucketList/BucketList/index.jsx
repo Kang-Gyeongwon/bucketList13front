@@ -22,9 +22,11 @@ const BucketList = () => {
     return <p>Error...</p>;
   }
 
+  console.log(data)
+
   return (
     <Container>
-      {data.map((item, index) => (
+      {data?.map((item, index) => (
         <BucketListItem
           key={item.id}
           item={item}

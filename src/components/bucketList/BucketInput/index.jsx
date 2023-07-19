@@ -15,6 +15,9 @@ const BucketInput = () => {
       queryClient.invalidateQueries("bucketListItems");
       console.log("success");
     },
+    onError: (error) => {
+      console.log("Error", error.message);
+    },
   });
 
   const handkeInputChages = (e) => {
@@ -31,7 +34,6 @@ const BucketInput = () => {
     }
     const newBucket = {
       ...formValue,
-      finish_check: false,
     };
 
     mutation.mutate(newBucket);
