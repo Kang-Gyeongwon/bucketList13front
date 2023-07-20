@@ -23,7 +23,7 @@ export const BucketProvider = ({ children }) => {
     error: imageError,
   } = useQuery("images", fetchImages);
 
-  // 이미지 URL 아이템 상태와 함께 관리 하기
+  // 이미지 URL과 데이터 아이템으로 함께 상태 관리하기
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -39,18 +39,21 @@ export const BucketProvider = ({ children }) => {
 
   const queryClient = useQueryClient();
 
+  // 추가하기 뮤테이션
   const mutation = useMutation(addBucketItem, {
     onSuccess: () => {
       queryClient.invalidateQueries("bucketListItems");
     },
   });
 
+  // 삭제하기(사진 url과 함께)
   const handleDelete = (id) => {
     deleteBucketItem(id).then(() => {
       setItems(items.filter((item) => item.id !== id));
     });
   };
 
+  // 추가하기
   const handleAdd = (newItem) => {
     mutation.mutate(newItem);
   };

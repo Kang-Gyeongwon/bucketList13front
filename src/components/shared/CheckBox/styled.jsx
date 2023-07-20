@@ -12,10 +12,7 @@ export const CheckboxContainer = styled.div`
 `;
 
 export const CheckedIcon = styled.div`
-  display: ${(props) => {
-    const { checked } = props;
-    return checked ? "block" : "none";
-  }};
+  display: ${(props) => (props.checked ? "block" : "none")};
   background-image: url(/assets/images/check.svg);
   background-size: cover;
   width: ${(props) => props.style?.width || "1.625em"};
