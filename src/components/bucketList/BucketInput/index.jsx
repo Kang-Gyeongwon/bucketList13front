@@ -1,26 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { BucketContext } from "../../contexts/BucketContext";
 import { AddBtn, FormInput, InputBox } from "./styled";
-import { useMutation, useQueryClient } from "react-query";
-import { addBucketItem } from "../../../api/bucketItems";
 
 const BucketInput = () => {
+  const { handleAdd } = useContext(BucketContext);
   const [formValue, setFormValue] = useState({
     content: "",
   });
 
-  const queryClient = useQueryClient();
-
-  const mutation = useMutation(addBucketItem, {
-    onSuccess: () => {
-      queryClient.invalidateQueries("bucketListItems");
-      console.log("success");
-    },
-    onError: (error) => {
-      console.log("Error", error.message);
-    },
-  });
-
-  const handkeInputChages = (e) => {
+  const handleInputChanges = (e) => {
     setFormValue({
       ...formValue,
       [e.target.name]: e.target.value,
@@ -37,7 +25,7 @@ const BucketInput = () => {
       finish_check: false,
     };
 
-    mutation.mutate(newBucket);
+    handleAdd(newBucket);
 
     setFormValue({
       content: "",
@@ -50,7 +38,7 @@ const BucketInput = () => {
         type="text"
         name="content"
         value={formValue.content}
-        onChange={handkeInputChages}
+        onChange={handleInputChanges}
         placeholder="What's on your adventure list? You can enter up to 140 characters."
       />
       <AddBtn type="submit" value="Create" onClick={handleSubmit} />

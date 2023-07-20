@@ -13,4 +13,5 @@ const fetchImages = async () => {
   return response.data.results.map((image) => image.urls.small);
 };
 
+
 export { fetchImages };
